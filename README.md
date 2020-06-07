@@ -1,4 +1,4 @@
-# Lang Bot 2 by Coby Hong
+# Discord Lang Bot 2 by Coby Hong
 
 ## Introduction
 
