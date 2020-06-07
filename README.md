@@ -22,10 +22,9 @@
    
 
   
-> Example:
-![alt text](https://i.imgur.com/fcSHrem.png)
+## Example:
+> ![alt text](https://i.imgur.com/fcSHrem.png)
    
-
 
 
 ## Available languages with prefixes (EX: Japanese would be !ja [your message])
