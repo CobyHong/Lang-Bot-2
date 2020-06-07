@@ -98,6 +98,7 @@ async def tr(ctx, *, msg):
         await ctx.send(embed=embed)
 
 
+#provides information about creator.
 @bot.command()
 async def trabout(ctx):
     str1 = "Hi my name is Coby Hong\n"
@@ -113,17 +114,16 @@ async def trabout(ctx):
     await ctx.author.send(embed=embed)
 
 
+#provides link to GitHub page containing list of usable languages.
 @bot.command()
 async def trlangs(ctx):
-    output = []
-    for language in languages.LANGUAGES:
-        output.append("!" + language + " :arrow_right: " + languages.LANGUAGES.get(language) + "\n")
+    output = "https://github.com/CobyHong/Lang-Bot-2"
 
-        embed = discord.Embed(color=0xffdd00)
-        embed.add_field(name="**Languages**",
-                        value=''.join(output),
-                        inline=True)
-        await ctx.author.send(embed=embed)
+    embed = discord.Embed(color=0xffdd00)
+    embed.add_field(name="**Languages (In GitHub Page):**",
+                    value=output,
+                    inline=True)
+    await ctx.author.send(embed=embed)
 
 
 #returns invalid usage message string based upon user's own language.
