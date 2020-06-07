@@ -43,7 +43,7 @@ translator = Translator()
 @bot.event
 async def on_ready():
     print("Translator Bot is Online.")
-    return await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="'!' command prefix"))
+    return await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Coby be cute :heart:"))
 
 
 #bot help command.
