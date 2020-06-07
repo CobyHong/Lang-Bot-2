@@ -27,7 +27,7 @@
    
 
 
-## Available languages with prefixes (EX: Japanese would be !ja [your message])
+## Available languages with prefixes (EX: Japanese would be !tr ja [your message])
 > af : afrikaans <br />
 sq : albanian<br />
 am : amharic<br />
