@@ -2,26 +2,32 @@
 
 ## Introduction
 
-> Easy and fast commands for back and forth language translations in Discord chats. Using discord.py and googletrans API. Hosted on Heroku. Chat with people with differing dialects in a manner that feels natural. Both parties will be able to communicate with ease thanks to googletran's ability to detect and translate any written language.
+> Easy and fast commands for back and forth language translations in Discord chats. <br/>
+  Using discord.py and googletrans API. Hosted on Heroku. <br/>
+  Chat with people with differing dialects in a manner that feels natural. <br/>
+  Both parties will be able to communicate with ease thanks to googletran's ability to detect and translate any written language.
+  
+## **★ Installation ★**
+
+> Simply invite the bot! No hassle! <br/>
+  Here's the link: [Click Here](https://discord.com/api/oauth2/authorize?client_id=719008726165749913&permissions=522304&scope=bot)
 
 ## Commands
 
-> !lang - private messages user a list of all available languages and their commands prefixes.<br />
-   !trhelp - list of commands.
-   !trlang - link back to this github page containing list of possible languages.
-   !trping - message showing bot is live and responsive. <br />
-   !trabout - just gives information about me.<br />
-   !tr [language-tag] [message] - declare language you want to translate followed by your message.<br />
-
-EXAMPLE:
-> ![alt text](https://i.imgur.com/J337SBW.png)
+>  !tr [language-tag] [message] - declare language you want to translate followed by your message.<br/>
+   !trhelp - list of commands. <br/>
+   !trlang - link back to this github page containing list of possible languages at bottom <br/>
+   !trping - message showing bot is live and responsive. <br/>
+   !trabout - just gives information about me.<br/>
    
 
-## Installation
+  
+## Example:
+> ![alt text](https://i.imgur.com/fcSHrem.png)
+   
 
-> Simply invite the bot! No hassle! Here's the link: [Click Here](https://discord.com/api/oauth2/authorize?client_id=719008726165749913&permissions=522304&scope=bot)
 
-## Available languages with prefixes (EX: Japanese would be !ja [YOUR TEXT])
+## Available languages with prefixes (EX: Japanese would be !ja [your message])
 > af : afrikaans <br />
 sq : albanian<br />
 am : amharic<br />
