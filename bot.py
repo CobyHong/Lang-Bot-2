@@ -49,7 +49,7 @@ async def on_ready():
 #bot help command.
 @bot.command()
 async def trhelp(ctx):
-    output = "    !tr\n    !trabout\n    !trping"
+    output = "    !tr\n    !trabout\n    !trping\n   !trhelp"
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="**Commands:**",
                     value= output,
