@@ -7,7 +7,7 @@
   Chat with people with differing dialects in a manner that feels natural. <br/>
   Both parties will be able to communicate with ease thanks to googletran's ability to detect and translate any written language.
   
-## **Installation**
+## **★ Installation ★**
 
 > Simply invite the bot! No hassle! <br/>
   Here's the link: [Click Here](https://discord.com/api/oauth2/authorize?client_id=719008726165749913&permissions=522304&scope=bot)
