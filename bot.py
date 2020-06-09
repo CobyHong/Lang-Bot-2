@@ -91,7 +91,8 @@ async def tr(ctx, *, msg):
     elif language_key in languages.LANGUAGES.keys():
         new_language = translator.translate(message, language_key).text
         embed = message_format(ctx, message, new_language)
-        await ctx.send(embed=embed, tts=True)
+        await ctx.send(embed=embed)
+        await ctx.send(new_language, tts=True)
 
     else:
         embed = invalid_input(message, detected_language)
