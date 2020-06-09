@@ -3,7 +3,6 @@ from discord.ext import commands
 from googletrans import Translator
 import languages
 import asyncio
-import ffmpeg
 import os
 
 
