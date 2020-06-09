@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from googletrans import Translator
+from gtts import gTTS
 import languages
 import asyncio
 import os
@@ -54,12 +55,8 @@ async def trjoin(ctx):
                     value="Joining your channel...",
                     inline=True)
     await ctx.send(embed=embed)
-
-    channel = await ctx.author.voice.channel.connect()
-    print(channel.is_playing())
-    if not channel.is_playing():
-        channel.play(discord.FFmpegPCMAudio("./audio_output/alive.mp3"))
-
+    
+    await ctx.author.voice.channel.connect()
 
 #leave user's voice channel currently residing in.
 @bot.command()
@@ -119,6 +116,11 @@ async def tr(ctx, *, msg):
         new_language = translator.translate(message, language_key).text
         embed = message_format(ctx, message, new_language)
         await ctx.send(embed=embed)
+
+        channel = ctx.author.voice.channel
+        tts = gTTS(new_language)
+        tts.save("./audio_output/output.mp3")
+        channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
 
     else:
         embed = invalid_input(message, detected_language)
