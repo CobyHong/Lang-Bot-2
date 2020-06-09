@@ -117,7 +117,7 @@ async def tr(ctx, *, msg):
         embed = message_format(ctx, message, new_language)
         await ctx.send(embed=embed)
 
-        channel = ctx.author.voice.channel
+        channel = ctx.author.voice.channel.connect()
         tts = gTTS(new_language)
         tts.save("./audio_output/output.mp3")
         channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
