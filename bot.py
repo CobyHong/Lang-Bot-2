@@ -50,25 +50,26 @@ async def on_ready():
 #join user's voice channel currently residing in.
 @bot.command(pass_context=True)
 async def trjoin(ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
-
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
                     value="Joining your channel...",
                     inline=True)
     await client.send(embed)
 
+    channel = ctx.author.voice.channel
+    await channel.connect()
+
+
 #leave user's voice channel currently residing in.
 @bot.command()
 async def trleave(ctx):
-    await ctx.voice_client.disconnect()
-
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
                     value="Leaving your channel...",
                     inline=True)
     await client.send(embed)
+
+    await ctx.voice_client.disconnect()
 
 
 #bot help command.
