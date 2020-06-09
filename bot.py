@@ -3,6 +3,7 @@ from discord.ext import commands
 from googletrans import Translator
 import languages
 import asyncio
+import ffmpeg
 import os
 
 
@@ -55,8 +56,10 @@ async def trjoin(ctx):
                     inline=True)
     await ctx.send(embed=embed)
 
-    channel = ctx.author.voice.channel
-    await channel.connect()
+    channel = await ctx.author.voice.channel.connect()
+    print(channel.is_playing())
+    if not channel.is_playing():
+        channel.play(discord.FFmpegPCMAudio("./audio_output/alive.mp3"))
 
 
 #leave user's voice channel currently residing in.
