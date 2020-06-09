@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.voice_client import VoiceClient
 from googletrans import Translator
 import languages
 import asyncio
@@ -47,10 +48,10 @@ async def on_ready():
 
 
 #join user's voice channel currently residing in.
-@bot.command()
+@bot.command(pass_context=True)
 async def trjoin(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await client.join_voice_channel(channel)
+    channel = ctx.author.voice.channel
+    await channel.connect()
 
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
@@ -58,13 +59,10 @@ async def trjoin(ctx):
                     inline=True)
     await client.send(embed)
 
-
 #leave user's voice channel currently residing in.
 @bot.command()
 async def trleave(ctx):
-    server = ctx.message.server
-    voice_client = bot.voice_client_in(server)
-    await voice_client.disconnect()
+    await ctx.voice_client.disconnect()
 
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
