@@ -46,6 +46,21 @@ async def on_ready():
     return await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Anime"))
 
 
+#join user's voice channel currently residing in.
+@bot.command()
+async def trjoin(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await client.join_voice_channel(channel)
+
+
+#leave user's voice channel currently residing in.
+@bot.command()
+async def trleave(ctx):
+    server = ctx.message.server
+    voice_client = bot.voice_client_in(server)
+    await voice_client.disconnect()
+
+
 #bot help command.
 @bot.command()
 async def trhelp(ctx):
