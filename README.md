@@ -22,8 +22,8 @@
 ## Commands
 
 >  !tr [language-tag] [message] - declare language you want to translate followed by your message.<br/>
-   !trjoin - join voice channel user is in. will perform text-to-speech.
-   !trleave - leave voice channel user is in.
+   !trjoin - join voice channel user is in. will perform text-to-speech. <tr/>
+   !trleave - leave voice channel user is in. <br/>
    !trhelp - list of commands. <br/>
    !trlang - link back to this github page containing list of possible languages at bottom <br/>
    !trping - message showing bot is live and responsive. <br/>
