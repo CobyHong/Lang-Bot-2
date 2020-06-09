@@ -8,6 +8,11 @@
   Both parties will be able to communicate with ease thanks to googletran's ability to detect and translate any written language.
 
   *NEW: If in a voice channel, bot will perform text-to-speech!
+  *Possible Bugs:
+  -If cannot disconnect from channel, may have to do !trjoin and then !trleave.
+  
+  *Current cons:
+  -Bot only allows one person to do text-to-speech (tts) at a time (well duh there's only one bot).
   
 ## **★ Installation ★**
 
