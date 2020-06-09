@@ -53,7 +53,7 @@ async def trjoin(ctx):
     embed.add_field(name="...",
                     value="Joining your channel...",
                     inline=True)
-    await client.send(embed)
+    await ctx.send(embed=embed)
 
     channel = ctx.author.voice.channel
     await channel.connect()
@@ -66,7 +66,7 @@ async def trleave(ctx):
     embed.add_field(name="...",
                     value="Leaving your channel...",
                     inline=True)
-    await client.send(embed)
+    await ctx.send(embed=embed)
 
     await ctx.voice_client.disconnect()
 
