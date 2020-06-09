@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from discord.voice_client import VoiceClient
 from googletrans import Translator
 import languages
 import asyncio
