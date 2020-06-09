@@ -6,6 +6,8 @@
   Using discord.py and googletrans API. Hosted on Heroku. <br/>
   Chat with people with differing dialects in a manner that feels natural. <br/>
   Both parties will be able to communicate with ease thanks to googletran's ability to detect and translate any written language.
+
+  *NEW: If in a voice channel, bot will perform text-to-speech!
   
 ## **★ Installation ★**
 
@@ -15,6 +17,8 @@
 ## Commands
 
 >  !tr [language-tag] [message] - declare language you want to translate followed by your message.<br/>
+   !trjoin - join voice channel user is in. will perform text-to-speech.
+   !trleave - leave voice channel user is in.
    !trhelp - list of commands. <br/>
    !trlang - link back to this github page containing list of possible languages at bottom <br/>
    !trping - message showing bot is live and responsive. <br/>

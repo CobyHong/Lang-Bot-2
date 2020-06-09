@@ -58,6 +58,7 @@ async def trjoin(ctx):
     
     await ctx.author.voice.channel.connect()
 
+
 #leave user's voice channel currently residing in.
 @bot.command()
 async def trleave(ctx):
@@ -73,7 +74,7 @@ async def trleave(ctx):
 #bot help command.
 @bot.command()
 async def trhelp(ctx):
-    output = "    !tr\n    !trabout\n    !trping\n   !trhelp"
+    output = "    !tr\n    !trjoin\n    !trleave\n    !trabout\n    !trping\n   !trhelp"
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="**Commands:**",
                     value= output,
@@ -117,10 +118,14 @@ async def tr(ctx, *, msg):
         embed = message_format(ctx, message, new_language)
         await ctx.send(embed=embed)
 
-        channel = await ctx.author.voice.channel.connect()
-        tts = gTTS(new_language)
-        tts.save("./audio_output/output.mp3")
-        channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
+        #if connected to channel, playing text-to-speech.
+        channel = ctx.voice_client
+        if(channel is not None):
+            channel.pause()
+            channel.stop()
+            tts = gTTS(new_language, lang=language_key)
+            tts.save("./audio_output/output.mp3")
+            channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
 
     else:
         embed = invalid_input(message, detected_language)
