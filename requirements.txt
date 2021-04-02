@@ -1,5 +1,5 @@
 discord.py
 PyNaCl
-googletrans
+google_trans_new
 discord.py[voice]
 gTTS
