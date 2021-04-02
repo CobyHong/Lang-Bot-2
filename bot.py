@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from googletrans import Translator
+from google_trans_new import google_translator
 from gtts import gTTS
 import languages
 import asyncio
@@ -37,7 +37,7 @@ bot = commands.Bot(command_prefix='!')
 
 
 #Google translate initialization.
-translator = Translator()
+translator = google_translator()
 
 
 #bot on startup.
@@ -50,24 +50,12 @@ async def on_ready():
 #join user's voice channel currently residing in.
 @bot.command(pass_context=True)
 async def trjoin(ctx):
-    # embed = discord.Embed(color=0xffdd00)
-    # embed.add_field(name="...",
-    #                 value="Joining your channel...",
-    #                 inline=True)
-    # await ctx.send(embed=embed)
-    
     await ctx.author.voice.channel.connect()
 
 
 #leave user's voice channel currently residing in.
 @bot.command()
 async def trleave(ctx):
-    # embed = discord.Embed(color=0xffdd00)
-    # embed.add_field(name="...",
-    #                 value="Leaving your channel...",
-    #                 inline=True)
-    # await ctx.send(embed=embed)
-
     await ctx.voice_client.disconnect()
 
 
@@ -104,17 +92,15 @@ async def tr(ctx, *, msg):
     language_key = msg_array[0]
     #parsing message to remove the language command from it.
     message = msg.replace(language_key + ' ', '')
-    #getting the language the user is in.
-    detected_language = translator.detect(message).lang
 
     #checking argument length / validate command.
     if(len(msg_array) < 2 or msg is None):
-        embed = invalid_usage(msg, detected_language)
+        embed = invalid_usage()
         await ctx.send(embed=embed)
 
     #see if the language key chosen exist in our library.
     elif language_key in languages.LANGUAGES.keys():
-        new_language = translator.translate(message, language_key).text
+        new_language = translator.translate(message, language_key)
         embed = message_format(ctx, message, new_language)
         await ctx.send(embed=embed)
 
@@ -128,7 +114,12 @@ async def tr(ctx, *, msg):
             channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
 
     else:
-        embed = invalid_input(message, detected_language)
+        if language_key == "uwu":
+            msg = "I can't believe you were stupid enough to try this. You are a stupid weeb. Have some decency. Shame on you..."
+            embed = message_format(ctx, "God", msg)
+            await ctx.send(embed=embed)
+            return
+        embed = invalid_input()
         await ctx.send(embed=embed)
 
 
@@ -161,25 +152,21 @@ async def trlangs(ctx):
 
 
 #returns invalid usage message string based upon user's own language.
-def invalid_usage(message, language):
+def invalid_usage():
     invalid_msg = "Invalid command usage.\nUsage: !tr ( language ) ( message )"
-    translated_invalid_msg = translator.translate(invalid_msg, language).text
-
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
-                    value=translated_invalid_msg,
+                    value=invalid_msg,
                     inline=True)
     return embed
 
 
 #returns invalid language message input string based upon user's own language.  
-def invalid_input(message, language):
+def invalid_input():
     invalid_msg = "Invalid language input.\nPlease try again!"
-    translated_invalid_msg = translator.translate(invalid_msg, language).text
-
     embed = discord.Embed(color=0xffdd00)
     embed.add_field(name="...",
-                    value=translated_invalid_msg,
+                    value=invalid_msg,
                     inline=True)
     return embed
 
