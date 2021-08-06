@@ -188,9 +188,9 @@ async def tr(ctx, *, msg=""):
 				tts.save("./audio_output/output.mp3")
 				channel.play(discord.FFmpegPCMAudio("./audio_output/output.mp3"))
 
-			embed = invalid_input()
-			await ctx.send(embed=embed)
-			return
+		embed = invalid_input()
+		await ctx.send(embed=embed)
+		return
 	except:
 		print("translation error.")
 		return
