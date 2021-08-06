@@ -1,5 +1,6 @@
 discord.py
 PyNaCl
 google_trans_new
+itranslate
 discord.py[voice]
 gTTS
