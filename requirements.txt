@@ -1,5 +1,1 @@
-discord.py
-PyNaCl
-itranslate
-discord.py[voice]
-gTTS
+
